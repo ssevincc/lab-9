@@ -1,0 +1,23 @@
+17)x**2+ln(x)−4=0 in the interval [1.0,2.0]
+
+
+import math
+x = sqrt(4 - ln(x))
+def g(x):
+    return math.sqrt(4 - math.log(x))
+
+def fixed_point_iteration(x0, tol=1e-6, max_iter=100):
+    iter_count = 0
+    while iter_count < max_iter:
+        x1 = g(x0)
+        if abs(x1 - x0) < tol:
+            return x1  # Approximate root found
+        x0 = x1
+        iter_count += 1
+
+    print("Method did not converge within the maximum number of iterations.")
+    return None
+x0 = 1.5
+
+root = fixed_point_iteration(x0)
+print(f"Approximate root: {root}")
